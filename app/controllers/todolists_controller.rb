@@ -13,7 +13,12 @@ class TodolistsController < ApplicationController
     redirect_to '/top'
 
   end
-
+  
+  def index
+    @lists = List.all
+  
+  end
+  
   private
   # ストロングパラメータ
   def list_params
