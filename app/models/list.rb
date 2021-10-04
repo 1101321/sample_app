@@ -1,7 +1,7 @@
 class List < ApplicationRecord
   attachment :image
 
-  varidates :title, presence: true
-  varidates :body, presence: true
-  varidates :image, presence: true
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :image, presence: true
 end
