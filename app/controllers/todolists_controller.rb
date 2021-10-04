@@ -11,6 +11,13 @@ class TodolistsController < ApplicationController
     list.save
     # 3 詳細画面へリダイレクト
     redirect_to todolist_path(list.id)
+    
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to todolist_path(@list.id)
+    else
+      renderer :new
+    end
 
   end
 
@@ -35,6 +42,7 @@ class TodolistsController < ApplicationController
     list.update(list_params)
     redirect_to todolist_path(list.id)
   end
+
 
   private
   # ストロングパラメータ
